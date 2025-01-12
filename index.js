@@ -31,7 +31,7 @@ regenButton.addEventListener("click", () => {
   let cellNewSize = parseInt(window.prompt("Enter the new grid size:"));
 
   // Check if input is valid
-  if (isNaN(cellNewSize) || cellNewSize < 1 || cellNewSize > 512) {
+  if (isNaN(cellNewSize) || cellNewSize < 1 || cellNewSize > 100) {
     alert("Invalid input. Please enter a number between 1 and 100");
     return;
   }
