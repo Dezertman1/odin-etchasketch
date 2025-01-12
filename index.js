@@ -1,32 +1,33 @@
+// Declare constants for the grid container and buttons
 const gridContainer = document.querySelector("#gridcontainer");
 const regenButton = document.querySelector("#regenbutton");
 const rainbowButton = document.querySelector("#rainbowbutton");
 
+// Declare variables for cell color and rainbow mode
 let cellColor = "black";
 let rainbowMode = false;
 
 function makeGrid(rows, collumns) {
-  const cellSize = gridContainer.clientWidth / collumns;
-  console.log("Cellsize: " + cellSize);
+  const cellSize = gridContainer.clientWidth / collumns; // Calculate cell size based on grid container width
   for (let i = 0; i < rows * collumns; i++) {
     const cell = document.createElement("div");
     cell.classList.add("cell");
     cell.style.width = `${cellSize}px`;
     cell.style.height = `${cellSize}px`;
     cell.addEventListener("mouseover", () => {
+      // Change cell color on mouseover
       if (rainbowMode) {
-      cell.style.backgroundColor = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+        cell.style.backgroundColor =
+          "hsl(" + Math.random() * 360 + ", 100%, 50%)";
       } else {
-      cell.style.backgroundColor = cellColor;
+        cell.style.backgroundColor = cellColor;
       }
     });
-    gridContainer.appendChild(cell);
-    console.log("Created div");
+    gridContainer.appendChild(cell); // Append cell to grid container
   }
 }
 
 regenButton.addEventListener("click", () => {
-  console.log("Regenerating grid");
   let cellNewSize = parseInt(window.prompt("Enter the new grid size:"));
 
   // Check if input is valid
@@ -53,4 +54,4 @@ rainbowButton.addEventListener("click", () => {
   }
 });
 
-makeGrid(16, 16)
+makeGrid(16, 16);
