@@ -1,17 +1,23 @@
 body {
     margin: 0;
   }
-  
+
 #gridcontainer {
     display: flex;
     flex-wrap: wrap;
-    width: 70vw;
-    height: 70vw;
+    width: 600px;
+    height: 600px;
     border: 1px solid black;
     margin: auto;
-}
-  
+  }
+
 .cell {
     border: 1px solid gray;
     box-sizing: border-box;
-}  
+  }
+
+button {
+    margin: 0 40%;
+    width: 10%;
+  }
+

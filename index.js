@@ -1,4 +1,5 @@
 const gridContainer = document.querySelector('#gridcontainer');
+const regenButton = document.querySelector('#regenbutton')
 
 function makeGrid(rows, collumns) {
   const cellSize = gridContainer.clientWidth / collumns;
@@ -16,4 +17,22 @@ function makeGrid(rows, collumns) {
   }
 }
 
-makeGrid(16, 16);
+regenButton.addEventListener('click', () => {
+  console.log('Regenerating grid');
+  let cellNewSize = parseInt(window.prompt("Enter the new grid size:"));
+
+  // Check if input is valid
+  if (isNaN(cellNewSize) || cellNewSize < 1 || cellNewSize > 512) {
+    alert('Invalid input. Please enter a number between 1 and 100');
+    return;
+  }
+
+  // Clear grid
+  while (gridContainer.firstChild) {
+    gridContainer.removeChild(gridContainer.firstChild);
+  }
+
+  makeGrid(cellNewSize, cellNewSize);
+});
+
+//makeGrid(16, 16);
